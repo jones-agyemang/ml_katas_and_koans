@@ -1,0 +1,31 @@
+# hint.txt — The Shape is Truth
+
+Start by inspecting the shape of X.
+
+Questions to ask:
+- Which axis represents rows/samples?
+- Which axis represents columns/features?
+- Should the mean be calculated down rows or across columns?
+
+Useful NumPy tools:
+- X.mean(axis=0)
+- X.std(axis=0)
+- broadcasting
+- matrix multiplication with @
+- np.linalg.eig or np.linalg.eigh
+
+Suggested path:
+1. Compute the mean of each feature column.
+2. Compute the standard deviation of each feature column.
+3. Subtract the column means from X.
+4. Divide by the column standard deviations.
+5. Compute covariance manually using:
+
+   covariance = X_standardised.T @ X_standardised / (n_samples - 1)
+
+6. Use eigen decomposition on the covariance matrix.
+
+Watch out:
+- Do not standardise across rows.
+- Do not divide by n_features.
+- Covariance matrix should be shape (features, features).

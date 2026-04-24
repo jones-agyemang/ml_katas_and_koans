@@ -1,0 +1,28 @@
+# hint.txt — The Data Lies Until Grouped
+
+Start by identifying:
+- Which columns define the group?
+- Which numeric column should be aggregated?
+- What does “within group” mean?
+
+Useful Pandas tools:
+- df.groupby([...])
+- .agg()
+- .transform()
+- .rolling()
+- .rank()
+- sort_values()
+
+Suggested path:
+1. Sort the dataframe by group columns and time/order column if available.
+2. Use groupby to compute grouped means.
+3. Use transform when you need results aligned back to original rows.
+4. For rolling averages, group first, then apply rolling logic per group.
+5. For ranking, use:
+
+   df.groupby(group_cols)[value_col].rank(...)
+
+Watch out:
+- apply often works, but hides what is happening.
+- transform is useful when output must remain the same length as the dataframe.
+- Rolling calculations depend heavily on row order.

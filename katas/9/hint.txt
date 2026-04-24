@@ -1,0 +1,34 @@
+# hint.txt — The Curve Speaks
+
+You are looking for the story told by two curves:
+- Training error
+- Validation error
+
+Useful sklearn tools:
+- learning_curve
+- validation_curve
+- train_test_split
+- PolynomialFeatures
+- DecisionTreeClassifier / DecisionTreeRegressor
+- matplotlib
+
+Suggested path:
+1. Pick a model where complexity is adjustable.
+   Examples:
+   - Decision tree max_depth
+   - Polynomial regression degree
+   - k-NN n_neighbors
+
+2. Train models across increasing complexity.
+3. Store training error and validation error.
+4. Plot both curves.
+5. Interpret the gap.
+
+Patterns:
+- High train error + high validation error = underfitting.
+- Low train error + high validation error = overfitting.
+- Low train error + low validation error = good fit.
+
+Watch out:
+- Validation error is the honest signal.
+- Training error alone is seductive but incomplete.

@@ -1,0 +1,34 @@
+# hint.txt — Garbage In Still Wins
+
+The goal is to prove that features can matter more than model choice.
+
+Useful sklearn tools:
+- PolynomialFeatures
+- train_test_split
+- Pipeline
+- StandardScaler
+- LinearRegression / LogisticRegression
+- RandomForestClassifier
+- cross_val_score
+
+Suggested path:
+1. Train a baseline model on raw features.
+2. Record performance.
+3. Add polynomial features.
+4. Add interaction terms.
+5. Retrain the same model.
+6. Compare performance.
+
+Useful pattern:
+
+   Pipeline([
+       ("poly", PolynomialFeatures(degree=2, include_bias=False)),
+       ("scaler", StandardScaler()),
+       ("model", LogisticRegression())
+   ])
+
+Watch out:
+- More features can improve signal but also increase overfitting.
+- Polynomial expansion can explode feature count.
+- Always compare train and validation performance.
+- Feature engineering should be tested, not assumed.

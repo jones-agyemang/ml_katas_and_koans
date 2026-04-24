@@ -1,0 +1,48 @@
+# hint.txt — Ship or It Didn’t Happen
+
+Think like an ML engineer, not just a notebook user.
+
+Minimum system:
+- Load data
+- Train model
+- Evaluate model
+- Save artefact
+- Serve prediction
+
+Useful tools:
+- pandas
+- sklearn Pipeline
+- joblib
+- FastAPI or Flask
+- pytest
+- Docker
+- Makefile
+
+Suggested project structure:
+
+   ml_project/
+     data/
+     src/
+       train.py
+       evaluate.py
+       predict.py
+       api.py
+     models/
+     tests/
+     requirements.txt
+     Makefile
+     README.md
+
+Suggested path:
+1. Build a training script.
+2. Save the trained model with joblib.
+3. Build a predict function that loads the model.
+4. Add a small API endpoint.
+5. Add tests for prediction shape and response format.
+6. Add a simple README explaining how to run everything.
+
+Watch out:
+- A notebook is not a product.
+- Save preprocessing and model together, ideally as a Pipeline.
+- Never manually repeat preprocessing logic in training and inference.
+- The inference path is where many ML projects break.

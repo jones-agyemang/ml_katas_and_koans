@@ -1,0 +1,35 @@
+# hint.txt — Leakage is Silent Death
+
+The key idea:
+Anything learned from the data must be learned only from the training split.
+
+Useful sklearn tools:
+- Pipeline
+- StandardScaler
+- PCA
+- train_test_split
+- cross_val_score
+- LogisticRegression / RandomForestClassifier
+
+Suggested path:
+1. Create version A:
+   - Scale the whole dataset first.
+   - Apply PCA to the whole dataset.
+   - Then split.
+   - Train and evaluate.
+
+2. Create version B:
+   - Split first.
+   - Build a Pipeline with scaler, PCA and classifier.
+   - Fit only on X_train.
+   - Evaluate on X_test.
+
+3. Compare the scores.
+
+Watch out:
+- Scaling before splitting leaks test-set statistics.
+- PCA before splitting leaks structure from the test set.
+- Pipelines protect you from accidentally fitting preprocessing steps on test data.
+
+Principle:
+The test set must remain unseen until final evaluation.

@@ -1,0 +1,33 @@
+# hint.txt — Autograd is Not Magic
+
+Start with the simplest possible equation:
+
+   y_pred = X @ w + b
+
+Useful PyTorch tools:
+- torch.tensor
+- requires_grad=True
+- loss.backward()
+- torch.no_grad()
+- .grad
+- zeroing gradients manually
+
+Suggested path:
+1. Create X and y tensors.
+2. Initialise w and b with requires_grad=True.
+3. Compute predictions manually.
+4. Compute MSE loss manually.
+5. Call loss.backward().
+6. Inspect w.grad and b.grad.
+7. Update parameters inside torch.no_grad().
+8. Set gradients back to zero before the next iteration.
+
+Watch out:
+- Gradients accumulate by default.
+- Parameter updates should not be tracked by autograd.
+- If loss does not decrease, check learning rate and tensor shapes.
+
+Then compare:
+- Manual version
+- nn.Linear version
+- torch.optim.SGD version

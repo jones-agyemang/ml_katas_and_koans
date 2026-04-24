@@ -1,0 +1,31 @@
+# hint.txt — Model ≠ Intelligence
+
+Start with a clean train/test split.
+
+Useful sklearn tools:
+- train_test_split
+- LogisticRegression
+- accuracy_score
+- precision_score
+- recall_score
+- roc_auc_score
+- classification_report
+- make_classification
+
+Suggested path:
+1. Train LogisticRegression on a balanced dataset.
+2. Generate predictions.
+3. Compute accuracy, precision, recall and ROC-AUC.
+4. Create an imbalanced dataset using make_classification with weights.
+5. Train the same model again.
+6. Compare how accuracy behaves versus recall and precision.
+
+Watch out:
+- Accuracy can look excellent on imbalanced data.
+- Always inspect the class distribution.
+- For ROC-AUC, use predicted probabilities, not hard class labels:
+
+   model.predict_proba(X_test)[:, 1]
+
+Reflection prompt:
+If fraud is 1% of the dataset, what accuracy can a useless model achieve?

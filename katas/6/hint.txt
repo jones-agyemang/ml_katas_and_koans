@@ -1,0 +1,32 @@
+# hint.txt — Overfit One Batch
+
+This is a debugging drill.
+
+The goal:
+Take one tiny batch and force the model to memorise it.
+
+Useful PyTorch tools:
+- model.train()
+- optimizer.zero_grad()
+- loss.backward()
+- optimizer.step()
+- CrossEntropyLoss / MSELoss
+
+Suggested path:
+1. Extract one batch from your dataloader.
+2. Reuse the same batch repeatedly.
+3. Train for many iterations on only that batch.
+4. Watch the loss.
+5. The loss should drop sharply.
+
+If it fails, investigate:
+- Are labels in the correct format?
+- Is the final layer output shape correct?
+- Are you using the correct loss function?
+- Is the learning rate too high or too low?
+- Did you forget optimizer.step()?
+- Did you forget model.train()?
+- Are gradients flowing?
+
+Rule:
+If a model cannot overfit one batch, do not trust full training.

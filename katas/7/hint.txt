@@ -1,0 +1,36 @@
+# hint.txt — Abstraction Hides Truth
+
+The exercise is not just to train a model.
+The exercise is to compare levels of control.
+
+Useful Keras tools:
+- keras.Sequential
+- Dense
+- compile
+- fit
+- evaluate
+
+Useful PyTorch tools:
+- nn.Module
+- DataLoader
+- optimizer
+- manual training loop
+
+Suggested path:
+1. Use the same dataset for both frameworks.
+2. Keep architecture as similar as possible.
+3. Train with Keras using model.fit().
+4. Train with PyTorch using a manual loop.
+5. Compare where each framework hides or exposes details.
+
+Questions to answer:
+- Where do gradients get zeroed?
+- Where is backprop triggered?
+- Where is evaluation mode handled?
+- Where are batches created?
+- Which version is easier to debug?
+
+Watch out:
+- Keras is faster to write.
+- PyTorch usually makes the training mechanics more visible.
+- Neither is “better” universally; they optimise for different workflows.
